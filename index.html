@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>桥梁预警平台VI3D</title>
+<link href="css/system.css" type="text/css"  rel="stylesheet">
+</head>
+<body class="sy_body">
+    <div class="sy_logo">东江大桥<b class="lu"></b><b class="ru"></b><b class="ld"></b><b class="rd"></b></div>
+    <div class="sy_heard clear trn">
+        <ul class="sy_nav clear">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#">实时监控</a></li>
+            <li><a href="#">预警记录</a></li>
+            <li><a href="#">视频回放</a></li>
+            <li><a href="#">号码配置</a></li>
+            <li><a href="#">终端管理</a></li>
+            <li><a href="#">桥梁管理</a></li>
+            <li><a href="#">用户管理</a></li>
+        </ul>
+        <div class="sy_select">
+            <a class="select_btn">管理人员<i class="syicon">&#xe611;</i></a>
+            <div class="sy_select_mian">
+                <a>个人信息</a>
+                <a>修改密码</a>
+                <hr>
+                <a>退出</a>
+            </div>
+        </div>
+        <a class="sy_heard_ibtn trn">
+        	<i class="syicon">&#xe629;</i>
+        </a>
+    </div>
+    <div class="sy_mian">
+    	<div class="sy_map"><img src="images/bg.jpg"></div>
+        
+        <div class="sy_popbox">
+            <a class="sy_popbtn flash"><img src="images/popbtn.png"></a>
+            <div class="sy_popmian">
+                <div class="sy_popmian_titles">预警信息</div>
+                <div class="sy_popmian_time">2017.5.15 00:00</div>
+                <div class="sy_popmian_cont">
+                    <div class="list one">
+                        <label>全天到往人数</label>
+                        <span>205</span><span>25745</span>
+                    </div>
+                    <div class="list clear">
+                        <div class="fl">
+                            <label>驻留时间0-4小时</label>
+                            <span>22960</span>
+                        </div>
+                        <div class="fl">
+                            <label>驻留时间4-9小时</label>
+                            <span>1685</span>
+                        </div>
+                    </div>
+                    <div class="list clear">
+                        <div class="fl">
+                            <label>驻留时间9-15小时</label>
+                            <span>757</span>
+                        </div>
+                        <div class="fl">
+                            <label>驻留时间15-24小时</label>
+                            <span>343</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sy_popbox" style="top:50%; left:30%;">
+            <a class="sy_popbtn flash"><img src="images/popbtn_red.png"></a>
+            <div class="sy_popmian">
+                <div class="sy_popmian_titles">预警信息</div>
+                <div class="sy_popmian_time">2017.5.15 00:00</div>
+                <div class="sy_popmian_cont">
+                    <div class="list one">
+                        <label>全天到往人数</label>
+                        <span>205</span><span>25745</span>
+                    </div>
+                    <div class="list clear">
+                        <div class="fl">
+                            <label>驻留时间0-4小时</label>
+                            <span>22960</span>
+                        </div>
+                        <div class="fl">
+                            <label>驻留时间4-9小时</label>
+                            <span>1685</span>
+                        </div>
+                    </div>
+                    <div class="list clear">
+                        <div class="fl">
+                            <label>驻留时间9-15小时</label>
+                            <span>757</span>
+                        </div>
+                        <div class="fl">
+                            <label>驻留时间15-24小时</label>
+                            <span>343</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sy_rightdata">
+            <div class="sy_scorll">
+                <div class="sydata_box one">
+                    <div>未处理预警<span>25</span>条</div>
+                    <div>已处理预警<span>1530</span>条</div>
+                </div>
+                <div class="sydata_box">
+                    <div class="sydata_title clear">当日预警统计<span class="fr">2017.5.15</span></div>
+                    <div class="sydata_mian" id="today_warning"></div>
+                </div>
+                <div class="sydata_box">
+                    <div class="sydata_title clear">预警信息统计</div>
+                    <div class="sydata_mian" id="today_count"></div>
+                </div>
+                <div class="sydata_box">
+                    <div class="sydata_title clear">设备运行状态</div>
+                    <div class="sydata_mian" id="running_state"></div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="sy_foot">中山市聚云软件科技有限公司   版权所有</div>
+    
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/echarts.common.min.js"></script>
+    <script src="js/data_view.js"></script>
+    <script>
+    	$(function(){
+			$(".select_btn").on("click",function(){
+				$(this).next(".sy_select_mian").slideToggle(200);
+			});
+			$(".sy_heard_ibtn").on("click",function(){
+				$(this).toggleClass("r180").parents(".sy_heard").toggleClass("open");
+			});
+			
+			$(document).on("click",":not('.sy_popbox')",function(){
+				$(".sy_popmian").slideUp(100);
+				$(".sy_popbtn").addClass("flash");
+			})
+			/*注明，改变sy_popbox的定位位置（top,left,right,bottom,这四个样式）就能移动闪光点*/
+			$(".sy_popbtn").on("click",function(event){
+				event.stopPropagation();
+				$(this).toggleClass("flash");
+				$(this).next(".sy_popmian").slideToggle(100);
+			});
+		})
+    </script>
+</body>
+</html>
