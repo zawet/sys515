@@ -59,10 +59,10 @@ hr{border: 0;border-top: 1px solid #3e5d7d;height: 0;-webkit-box-sizing: content
 
 /*点展示*/
 .sy_popbox{ position:absolute; left:20%; top:50%; z-index:10;}
-.sy_popbtn{ width:80px; cursor:pointer; display:block;}
+.sy_popbtn{ width:50px; cursor:pointer; display:block;}
 .sy_popbtn img{ width:100%;}
 
-.sy_popmian{ position:absolute; bottom:-5%; left:52%; background:url(../images/popmian.png) no-repeat  50% 50%; width:600px; height:360px; color:#fff; display:none;}
+.sy_popmian{ position:absolute; bottom:-60%; left:52%; background:url(../images/popmian.png) no-repeat  50% 50%; width:600px; height:360px; color:#fff; display:none;}
 .sy_popmian_titles{ text-align:right; font-size:18px; padding-right:20px; line-height:30px;}
 .sy_popmian_time{ text-align:right; padding-right:20px; color:#ddd; margin-top:15px;}
 .sy_popmian_cont{ padding: 20px 0 0 24%; }
