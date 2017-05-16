@@ -159,7 +159,7 @@ function xrzb(id,datas,tit){
 					itemStyle:{normal:{
 						color:'rgba(255,255,255,0.3)',
 						borderWidth:1,
-						borderColor:'#051524'
+						borderColor:'rgba(0,0,0,0.3)'
 					}},
 					label:{normal:{/*formatter:"{b}\n{c}件正常",*/textStyle:{fontSize:12},show:true}},
 					labelLine:{normal:{smooth:false,length:8,length2:4,show:true}},
